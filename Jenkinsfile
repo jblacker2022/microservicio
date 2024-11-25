@@ -17,6 +17,13 @@ pipeline {
     }
 
     stages {
+        stage('Setup') {
+            steps {
+                echo 'Setting up permissions for mvnw...'
+                sh 'chmod +x ./mvnw' // Ajusta los permisos del archivo mvnw
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building the application...'
