@@ -7,8 +7,8 @@ pipeline {
         DOCKER_TAG = "latest"
 
         // Variables para SonarQube
-        SONAR_URL = 'http://<SONARQUBE_SERVER>'
-        SONAR_TOKEN = '<SONAR_TOKEN>'
+        SONAR_URL = 'http://172.174.20.139:9000/'
+        SONAR_TOKEN = 'squ_c0eb7d6f5f5ff29ea8dfb1b234cd339ffd64b765'
     }
 
     tools {
@@ -42,8 +42,13 @@ pipeline {
         stage('Sonar Analysis') {
             steps {
                 echo 'Analyzing code quality with SonarQube...'
-                withSonarQubeEnv('SonarQube') {
-                    sh "./mvnw sonar:sonar -Dsonar.projectKey=employee-microservice -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_TOKEN}"
+                withSonarQubeEnv('SonarQube') { // 'SonarQube' debe coincidir con el nombre configurado en Jenkins
+                    sh """
+                        ./mvnw sonar:sonar \
+                        -Dsonar.projectKey=employee-microservice \
+                        -Dsonar.host.url=${SONAR_URL} \
+                        -Dsonar.login=${SONAR_TOKEN}
+                    """
                 }
             }
         }
