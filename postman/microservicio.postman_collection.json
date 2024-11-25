@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "9ef6daea-c3fd-475d-bb08-d1ab927bb06c",
+		"name": "microservicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39964711"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
